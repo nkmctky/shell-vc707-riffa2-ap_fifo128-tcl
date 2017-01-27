@@ -77,4 +77,4 @@ fi
 
 cd xilinx/vc707/VC707_Gen2x8If128/prj
 vivado -mode batch -source run.tcl
-cd ../../..
+cd ../../../..
