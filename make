@@ -48,29 +48,30 @@ if [ $REMOVEIP ]; then
 	   ip_files+=( $(echo "$entry" | awk '{print substr($0, 3)}') )
 	done
 	cd ..
-
+	cd xilinx/vc707/VC707_Gen2x8If128/prj
 	i=0
 	for e in ${ip_files[@]}; do
 	    echo "remove_files ${e}" >> .hcode.script.removeip.tcl
 	    let i++
 	done
 
-	cd xilinx/vc707/VC707_Gen2x8If128/prj 
-	vivado -nolog -nojournal -mode batch -source ../../../../.hcode.script.removeip.tcl ./VC707_Gen2x8If128.xprr
-        cd ../../../..
+	 
+	vivado -nolog -nojournal -mode batch -source .hcode.script.removeip.tcl ./VC707_Gen2x8If128.xpr
+	rm -rf .hcode.script.removeip.tcl        
+	cd ../../../..
 
-	rm -rf .hcode.script.removeip.tcl
+	
 	exit 1
 fi
 
 if [ $ADDIP ]; then
 	echo "Adding ip in ip-src to shell."
-	echo "add_files ./ip-src" >> .hcode.script.addip.tcl
-
 	cd xilinx/vc707/VC707_Gen2x8If128/prj
-	vivado -nolog -nojournal -mode batch -source ../../../../.hcode.script.addip.tcl ./VC707_Gen2x8If128.xpr
-        cd ../../../..
+	echo "add_files ../../../../ip-src" >> .hcode.script.addip.tcl
+
+	vivado -nolog -nojournal -mode batch -source .hcode.script.addip.tcl ./VC707_Gen2x8If128.xpr
 	rm -rf .hcode.script.removeip.tcl
+        cd ../../../..
 	exit 1
 fi
 
