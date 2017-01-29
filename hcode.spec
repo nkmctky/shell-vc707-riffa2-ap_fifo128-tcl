@@ -22,7 +22,8 @@
       "ap_fifo": {
         "data_width": 128 
        }
-    }
+    },
+    "driver": riffa
   },
   "compatible_shell": {
     "shell-vc707-xillybus-ap_fifo128": "Shell driver not compatible."
