@@ -5,6 +5,7 @@
   "summary": "A hCODE shell based on RIFFA2.2.1 (VC707_Gen2x8If128) PCIe module.",
   "description": "RIFFA is original developed in http://riffa.ucsd.edu/. The hCODE version is developed in Computer Arch. Lab@Kumamoto University, Japan.",
   "homepage": "http://riffa.ucsd.edu/",
+  "driver" : "riffa"
   "license": "MIT",
   "authors": {
     "Takuya Nakamichi": "nakamichi@arch.cs.kumamoto-u.ac.jp"
@@ -22,8 +23,7 @@
       "ap_fifo": {
         "data_width": 128 
        }
-    },
-    "driver": "riffa"
+    }
   },
   "compatible_shell": {
     "shell-vc707-xillybus-ap_fifo128": "Shell driver not compatible."
